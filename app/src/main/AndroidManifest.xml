@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.healthreminder">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:allowBackup="true"
+        android:appCategory="productivity"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/app_icon_round"
+        android:supportsRtl="true">
+
+        <service
+            android:name="com.android.healthreminder.Service.TimerService"
+            android:foregroundServiceType="shortService" />
+
+        <receiver
+            android:name="com.android.healthreminder.Receiver.AlarmReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.android.healthreminder.Activity.FAQActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DailyDoze" />
+        <activity
+            android:name="com.android.healthreminder.Activity.BackupActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DailyDoze.Backup" />
+        <activity
+            android:name="com.android.healthreminder.Activity.AboutActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DailyDoze" />
+        <activity
+            android:name="com.android.healthreminder.Activity.MeditationStats"
+            android:exported="false"
+            android:theme="@style/Theme.DailyDoze" />
+        <activity
+            android:name="com.android.healthreminder.Activity.PerformMeditationActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DailyDoze.PerformMeditation" />
+        <activity
+            android:name="com.android.healthreminder.Activity.NotificationActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DailyDoze" />
+        <activity
+            android:name="com.android.healthreminder.Activity.MeditationActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DailyDoze.Meditation" />
+        <activity
+            android:name="com.android.healthreminder.Activity.FastActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DailyDoze.FastWatch" />
+        <activity
+            android:name="com.android.healthreminder.Activity.GraphActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DailyDoze" />
+        <activity
+            android:name="com.android.healthreminder.Activity.CalenderActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DailyDoze" />
+        <activity
+            android:name="com.android.healthreminder.Activity.InfoActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DailyDoze" />
+        <activity
+            android:name="com.android.healthreminder.Activity.SignupActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DailyDoze" />
+        <activity
+            android:name="com.android.healthreminder.Activity.LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DailyDoze" />
+        <activity
+            android:name="com.android.healthreminder.Activity.TweakActivity"
+            android:exported="false"
+            android:theme="@style/Theme.DailyDoze" />
+        <activity
+            android:name="com.android.healthreminder.Activity.SplashScreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.DailyDoze.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.android.healthreminder.Activity.MainActivity"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:theme="@style/Theme.DailyDoze" />
+    </application>
+</manifest>
